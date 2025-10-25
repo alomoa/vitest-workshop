@@ -18,3 +18,16 @@ describe("sum", () => {
     expect(() => sum("hello", "1")).toThrow()
   })
 });
+
+describe("difference between toEqual and toBe", () => {
+  it("should have the same values", () => {
+    expect({thing: "thing"}).toEqual({thing: "thing"})
+  })
+
+  it("should have the same reference", () => {
+    const obj = {thing: "thing"}
+    const obj2 = {thing: "thing"}
+    expect(obj).toBe(obj) // This will pass
+    // expect(obj).toBe(obj2) // This will fail
+  })
+})

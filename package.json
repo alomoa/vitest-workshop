@@ -8,7 +8,9 @@
   "main": "index.js",
   "scripts": {
     "test": "vitest tutorial",
-    "test-exercise": "vitest exercises"
+    "test-exercise-1": "vitest 1-basic.test",
+    "test-exercise-2": "vitest 2-mocking.test",
+    "test-exercise-3": "vitest 3-get-me-to-pass.test"
   },
   "devDependencies": {
     "vitest": "^3.2.4"

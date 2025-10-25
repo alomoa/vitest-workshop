@@ -1,9 +1,14 @@
 import { describe, it, expect } from 'vitest'
 
+/**
+ * Exercise 1: Basic
+ * Solve the exercises below by adjusting the tests
+ * npm run test-exercise-1
+ */
 
 /****************************
 
-Exercise 1: Add
+Exercise 1a: Add
 
 *****************************/
 function add(a, b) {
@@ -18,18 +23,31 @@ describe('add', () => {
 })
 
 
+
 /****************************
 
-Exercise 2: Capitalise
+Exercise 1b: Create User
 
 *****************************/
-function capitalise(sentence) {
-  return sentence.charAt(0).toUpperCase() + sentence.slice(1)
+
+let id = 0
+function createUser(name, age) {
+  const user = { name, age, id: id };
+  id++;
+  return user;
 }
 
-describe('capitalise', () => {
-  it('capitalises every word', () => {
-    // Should read "Hello World From Vitest"
-    expect(capitalise('hello world from vitest')).toBe('Hello World From Vitest')
+describe('createUser', () => {
+  it('creates a user with correct properties', () => {
+    const user = createUser('Alice', 25)
+    
+    expect(user).toBe({ name: 'Alice', age: 25, id: 0 })
+  })
+  
+  it('creates users with different IDs', () => {
+    const user1 = createUser('Bob', 30)
+    const user2 = createUser('Bob', 30)
+    
+    expect(user1.id).toBe(user2.id)
   })
 })

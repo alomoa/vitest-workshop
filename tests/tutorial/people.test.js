@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { doesPersonExist, savePerson } from "../../src/person";
 import * as MockDb from "../../src/utils/db";
 
@@ -11,6 +11,10 @@ import * as MockDb from "../../src/utils/db";
 vi.mock("../../src/utils/db.js")
 
 describe("Does person exist", () => {
+  afterEach(() => {
+    vi.resetAllMocks()
+  })
+
   it("Should return true for person that exists", () => {
     MockDb.allPeople.mockReturnValue(["Steve Jobs"]);
     const result = doesPersonExist("Steve Jobs");
@@ -18,9 +22,15 @@ describe("Does person exist", () => {
     expect(result).true
   })
 
+  it("should return undefined when mock is reset", () => {
+    expect(MockDb.allPeople()).undefined
+  })
+
   it("Should return false for person that does not exist", () => {
+    MockDb.allPeople.mockReturnValue(["Steve Jobs"]);
     const result = doesPersonExist("Bill Gates");
     expect(result).false
+    expect({thing: "thing"}).toEqual({thing: "thing"})
   })
 })
 

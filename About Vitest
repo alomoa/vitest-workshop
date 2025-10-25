@@ -1,9 +1,13 @@
-It's a Vite-native testing framework meaning it's highly compatible with Vite in that it can use Vite's config. Can have a separate config if needed
-It's also compatible with Jest, things like expect, snapshot and coverage are also available in Vitest. How?
-It's also fast. How is it compared to Jest?
+It's a Vite-native testing framework meaning it's highly compatible with Vite in that it can use Vite's config. Can have a separate config if needed.
+  - What does configuration entail?
+It's also compatible with Jest, things like expect, snapshot and coverage are also available in Vitest. 
+  - How?
+It's also fast. 
+  - How is it compared to Jest?
 
 Important (to me) features:
 - Components testing with React, Vue, Svelte, and a few more.
+- Is it vitest that enables you to test components or something else?
 
 What does Vitest have that Jest does not? Apart from speed?
 
