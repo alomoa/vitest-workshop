@@ -7,7 +7,8 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "vitest"
+    "test": "vitest tutorial",
+    "test-exercise": "vitest exercises"
   },
   "devDependencies": {
     "vitest": "^3.2.4"

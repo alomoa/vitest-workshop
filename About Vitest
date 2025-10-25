@@ -1,0 +1,46 @@
+It's a Vite-native testing framework meaning it's highly compatible with Vite in that it can use Vite's config. Can have a separate config if needed
+It's also compatible with Jest, things like expect, snapshot and coverage are also available in Vitest. How?
+It's also fast. How is it compared to Jest?
+
+Important (to me) features:
+- Components testing with React, Vue, Svelte, and a few more.
+
+What does Vitest have that Jest does not? Apart from speed?
+
+Why use Vitest?
+Becuase it uses Vite's configuration, there isn't a need for additional config to transform the source files into a usable format (what does this mean?) since it's already done. The test runner simply runs the test (after the vite config stuff has complete)
+
+It'll be easy to migrate from Jest to Vitest since it's compatible with Jest. You can easily swap testfiles to run with Vitest
+
+If your project is Vite based and using Jest, you're going to make two separate pipelines (what does this mean?) for testing and building, which maintaining might not be feasable especially as the project grows. Vitest uses the existing Vite config so there's only one.
+
+Even outside of Vite environments, it does everything Jest does but alot faster along with HMR to quickly re-run the tests only the changes effect
+
+
+Installing: 
+npm install -D vitest
+Node version needs to be > 18.0.0
+
+
+What do I want to go over?
+- Config
+  - Include
+  - Exclude
+- Creating a basic test
+- Running specific test 
+  - CLI Filter
+  - .skip
+  - .only
+  - .todo
+- Mocking
+
+What the hell am I trying to do? I'm trying to come up with an example for mocking which is the act of replacing the actual implementation of something with something else usually because it's not what the test is focusing on and/or it performs a network request or performs a data operation.
+- Saving data
+  - Transforming the data in a way the network would accept
+- Loading data, transforming the data in a way the application can use
+- How the hell do I turn this into a workshop? A follow along? How about an explanation at the start, a follow along, and some challenges? And I'll just cover basic tests and mocks
+
+Challenges:
+- Complete the test based on based on the "it should"
+- Mock the appropriate module to pass the failing test
+- 
