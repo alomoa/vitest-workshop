@@ -1,22 +1,35 @@
 It's a Vite-native testing framework meaning it's highly compatible with Vite in that it can use Vite's config. Can have a separate config if needed.
   - What does configuration entail?
+    Vitest configuration includes test file patterns (include/exclude), environment setup, coverage settings, mock settings, transform settings, test timeouts, parallel execution, custom matchers, and setup files.
 It's also compatible with Jest, things like expect, snapshot and coverage are also available in Vitest. 
   - How?
+    Vitest uses the same API as Jest: same expect() matchers (.toBe(), .toEqual(), etc.), same test structure (describe, it, test), same mocking API (vi.mock(), vi.fn(), etc.), same lifecycle hooks (beforeEach, afterEach), same snapshot testing, and same coverage reporting.
 It's also fast. 
   - How is it compared to Jest?
+    Vitest is significantly faster than Jest: 3-5x faster test execution, Hot Module Replacement (HMR) for instant test re-runs, native ESM support (no CommonJS overhead), parallel execution by default, and faster startup due to Vite's architecture.
 
 Important (to me) features:
 - Components testing with React, Vue, Svelte, and a few more.
 - Is it vitest that enables you to test components or something else?
+  Vitest itself provides the test runner, but component testing requires additional libraries: @testing-library/react for React components, @testing-library/vue for Vue components, @testing-library/svelte for Svelte components, and jsdom or happy-dom for DOM simulation. Vitest works with these libraries seamlessly.
 
 What does Vitest have that Jest does not? Apart from speed?
+- Native TypeScript support (no additional config)
+- Native ESM support (no Babel/transform needed)
+- Built-in watch mode with HMR
+- Better error messages and stack traces
+- Native Vite integration (shares config, plugins)
+- Better debugging experience
+- Native CSS/asset imports in tests
 
 Why use Vitest?
 Becuase it uses Vite's configuration, there isn't a need for additional config to transform the source files into a usable format (what does this mean?) since it's already done. The test runner simply runs the test (after the vite config stuff has complete)
+  When you use Vite for building, it already transforms: TypeScript → JavaScript, JSX → JavaScript, CSS modules → CSS, asset imports → URLs, and modern JS → compatible JS. Vitest reuses these same transformations, so you don't need separate Babel/Webpack configs for testing.
 
 It'll be easy to migrate from Jest to Vitest since it's compatible with Jest. You can easily swap testfiles to run with Vitest
 
 If your project is Vite based and using Jest, you're going to make two separate pipelines (what does this mean?) for testing and building, which maintaining might not be feasable especially as the project grows. Vitest uses the existing Vite config so there's only one.
+  With Jest + Vite projects, you have: Build pipeline (Vite transforms code for production) and Test pipeline (Jest transforms code for testing with separate Babel/Webpack config). This means maintaining two different transformation setups. Vitest eliminates this by using Vite's existing pipeline.
 
 Even outside of Vite environments, it does everything Jest does but alot faster along with HMR to quickly re-run the tests only the changes effect
 
